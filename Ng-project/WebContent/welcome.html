@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>welcome</title>
+</head>
+<body class="fluid ">
+<div >
+<div class=""><h1 class="text-success panel-heading panel-danger">WELCOME::: {{ owner }}</h1></div>
+<span class="help-block">this value is from run method and rootscope of module</span>
+<h3>Data binding</h3>
+<div class="form-group form-horizontal col-sm-5">
+
+<div class="form-group">
+<label for="firstname" class="col-sm-3 control-label">First Name</label>
+<div class="col-sm-6">
+<input type="text" class="form-control" ng-model="name" placeholder="Enter Name">
+</div>
+</div>
+	
+<div class="form-group">
+<label for="firstname" class="col-sm-3 control-label">First Name1</label>
+<div class="col-sm-6">
+<input type="text" class="form-control" ng-model="name" placeholder="Enter Name">
+</div>
+</div>
+	<form role="form">
+	<span class="help-block">2 text boxes are binded and will be in sync </span>
+	</form>
+	</div>
+
+<div>
+<h3>controller example</h3>
+<div ng-controller='MyController'>
+<span class="help-block">uses setintervel() method to set the interval </span>
+<h1>{{clock.now|date:"EEE MMM dd yyyy hh:mm:ss:sss 'GMT'Z '(India Standard Time)'"}}</h1>
+</div>
+</div>
+
+<div class="col-sm-6" ng-controller="CalcController">
+<h4>The simplest adding machine ever</h4>
+<button ng-click="add(1)" class="button">Add</button>
+<a ng-click="subtract(1)" class="button alert">Subtract</a>
+<h4>Current count: {{ counter }}</h4>
+</div>
+<div class="col-sm-6">
+<h3>nested controllers</h3>
+<div ng-controller="ParentController">
+<div ng-controller="ChildController">
+<a ng-click="sayHello()">Say hello</a>
+</div>
+{{ person }}
+</div>
+</div>
+<div ng-controller="MyCtrl">
+ <label>Primitive</label>
+ <input type="text" ng-model="name">
+ <label>Object</label>
+ <input type="text" ng-model="user.name">
+
+ <div class="nested" ng-controller="MyNestedCtrl">
+ <label>Primitive</label>
+ <input type="text" ng-model="name">
+ <label>Primitive with explicit $parent reference</label>
+ <input type="text" ng-model="$parent.name">
+
+ <label>Object</label>
+ <input type="text" ng-model="user.name">
+ </div>
+ </div>
+ <div >
+ <span class="help-block">using $Parse,$interpolate and $watch service </span>
+ <div ng-controller="ParseController">
+<input ng-model="expr" type="text" placeholder="Enter an expression" />
+<h2>{{ parsedValue }}</h2>
+
+<input ng-model="to" type="email" placeholder="Recipient" />
+<textarea ng-model="emailBody"></textarea>
+<pre >{{ previewText }}</pre>
+
+ </div>
+ <div class="content" ng-controller="ParseController">
+ <h3>Filters</h3>
+  123.456789::{{ 123.456789 | number:2 }}<br>
+  {{ 123| currency }}<br>
+  {{ today | date:'medium' }}<br> 
+{{ today | date:'short' }} <br>
+{{ today | date:'fullDate' }} <br>
+{{ today | date:'longDate' }} <br>
+{{ today | date:'mediumDate' }} <br>
+{{ today | date:'shortDate' }} <br>
+{{ today | date:'mediumTime' }} <br>
+{{ today | date:'shortTime' }} <br>
+ {{ {'name': 'Ari', 'City': 'San Francisco'} | json }}<br>
+ {{ "San Francisco is very cloudy" | lowercase }}<br>
+ {{ "San Francisco is very cloudy" | uppercase }}<br>
+ {{ 123456789 | number }}
+ 
+ <h3>Custom filer</h3>
+ 
+ ginger loves dog treats   --->{{ 'ginger loves dog treats' | lowercase | capitalize }}
+ </div>
+ 
+ <div>
+ <h3>form validations</h3>
+ <form name="form" novalidate>
+ <label name="name">NAME</label>
+ <input type="text" required />
+<label name="email">Your email</label>
+<input type="email" name="email" ng-model="email" placeholder="Email Address" />
+<input type="text" ng-minlength=5 />
+</form>
+
+<form name="signup_form" novalidate ng-submit="signupForm()">
+<fieldset>
+<legend>Signup</legend>
+<div class="">
+<div class="large-12 columns">
+<label>Your name</label>
+<input type="text"
+placeholder="Name"
+name="name"
+ng-model="signup.name"
+ng-minlength=3
+ng-maxlength=20 required />
+<div class="error"
+ng-show="signup_form.name.$dirty && signup_form.name.$invalid">
+<small class="error" ng-show="signup_form.name.$error.required">
+Your name is required.
+</small>
+<small class="error" ng-show="signup_form.name.$error.minlength">
+Your name is required to be at least 3 characters
+</small>
+<small class="error" ng-show="signup_form.name.$error.maxlength">
+Your name cannot be longer than 20 characters
+</small>
+</div>
+</div>
+</div>
+<div class="">
+<div class="large-12 columns">
+<label>Your email</label>
+<input type="email"
+placeholder="Email"
+name="email"
+ng-model="signup.email"
+ng-minlength=3 ng-maxlength=20 required />
+<div class="error"
+ng-show="signup_form.email.$dirty && signup_form.email.$invalid">
+<small class="error"
+ng-show="signup_form.email.$error.required">
+Your email is required.
+</small>
+<small class="error"
+ng-show="signup_form.email.$error.minlength">
+Your email is required to be at least 3 characters
+</small>
+<small class="error"
+ng-show="signup_form.email.$error.email">
+That is not a valid email. Please input a valid email.
+</small>
+<small class="error"
+ng-show="signup_form.email.$error.maxlength">
+Your email cannot be longer than 20 characters
+</small>
+</div>
+</div>
+</div>
+
+<button type="submit" ng-disabled="signup_form.$invalid" class="button radius">Submit</button>
+<button type="submit" class="button radius">Submit</button>
+</fieldset>
+</form>
+ </div>
+ </div>
+  <span class="help-block">2 see validations only after submit or blur check ng-book page55  </span>
+ </div>
+</body>
+</html>

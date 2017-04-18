@@ -5,13 +5,9 @@
     },
     "outline": {
       
-    },
-    "angular1": {
-      
     }
   },
   "libs": [
     "browser"
-  ],
-  "ecmaVersion": 5
+  ]
 }

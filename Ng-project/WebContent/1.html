@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Batch Log</title>
+
+</head>
+<body >
+<div class="container-fluid">
+
+<div class="col-md-12 row">
+<div class="col-md-4">
+
+<h2>Directives</h2>
+<h3>sample directive</h3>
+<my-directive1></my-directive1><p>As element</p>
+<div my-directive1></div><p>As attribute</p>
+<div class="my-directive1"></div><p>As Class</p>
+<span class="help-block">custom directives should always be in camelCase</span>
+
+</div>
+
+<div class="col-md-4">
+<h5>@ strategy</h5>
+<label>Entere url</label><input type="text" ng-model="myUrl1" /><br>
+<div my-directive my-url1="{{myUrl1}}" my-link-text="Click me to go to Google"></div><p>this is from different directive</p>
+<h1 ng-init="greeting = 'Hello World'">
+The greeting is: {{ greeting }}
+</h1>
+
+</div>
+<div class="col-md-4">
+<h5>= strategy</h5>
+<label>Their URL field:</label>
+<input type="text" ng-model="theirUrl">
+<div my-directive2 some-attr="theirUrl" my-link-text="Click me to go to Google"></div>
+
+</div>
+</div>
+
+<h1>Bootstrap Grid Example</h1>
+<div class="container-fluid">
+<div class="col-md-12 row">
+<div class="col-md-1"><h4 >1</h4></div>
+<div class="col-md-1"><h4 >1</h4></div>
+<div class="col-md-1"><h4 >1</h4></div>
+<div class="col-md-1"><h4 >1</h4></div>
+<div class="col-md-1"><h4 >1</h4></div>
+<div class="col-md-1"><h4 >1</h4></div>
+<div class="col-md-1"><h4 >1</h4></div>
+<div class="col-md-1"><h4 >1</h4></div>
+<div class="col-md-1"><h4 >1</h4></div>
+<div class="col-md-1"><h4 >1</h4></div>
+<div class="col-md-1"><h4 >1</h4></div>
+<div class="col-md-1"><h4 >1</h4></div>
+</div>
+<div class="col-md-12 row">
+<div class="col-md-2"><h4 class="">2</h4></div>
+<div class="col-md-2"><h4 class="center-block">2</h4></div>
+<div class="col-md-2"><h4 class="center-block">2</h4></div>
+<div class="col-md-2"><h4 class="center-block">2</h4></div>
+<div class="col-md-2"><h4 class="center-block">2</h4></div>
+<div class="col-md-2"><h4 class="center-block">2</h4></div>
+</div>
+<div class="col-md-12 row">
+<div class="col-md-3"><h4 >3</h4></div>
+<div class="col-md-3"><h4 >3</h4></div>
+<div class="col-md-3"><h4 >3</h4></div>
+<div class="col-md-3"><h4 >3</h4></div>
+</div>
+<div class="col-md-12 row">
+<h2>offset example</h2>
+<div class="row" style="background-color:lavender;">
+    <div class=" col-md-5" style="background-color:lightgray;">.col-sm-5 .col-md-6</div>
+    <div class="  col-md-5 col-md-offset-2" style="background-color:lightcyan;">.col-sm-5 .col-sm-offset-2 .col-md-6 .col-md-offset-0</div>
+  </div>
+</div>
+
+
+<div class="row">
+<h2></h2>
+  <div class="col-md-4 col-md-push-8">.col-md-4 .col-md-push-8</div>
+  <div class="col-md-8 col-md-pull-4">.col-md-8 .col-md-pull-4</div>
+</div>
+<div class="row">
+
+<h2>basic directives</h2>
+<div class="col-md-4">
+<h3>ng-init ng-selected and ng-checked</h3>
+<label>someProperty = {{someProperty1}}</label>
+<input type="checkbox" ng-checked="someProperty1" ng-init="someProperty1 = true" ng-model="someProperty1"><br>
+<label>anotherProperty = {{anotherProperty}}</label>
+<input type="checkbox" ng-checked="anotherProperty" ng-init="anotherProperty = false" ng-model="anotherProperty"><br>
+<label>Select Two Fish:</label>
+<input type="checkbox" ng-model="isTwoFish"><br/>
+<select>
+<option>One Fish</option>
+<option ng-selected="isTwoFish">Two Fish</option>
+</select>
+
+<h3>href and ng href</h3>
+<a ng-href="{{myHref}}">I'm feeling lucky, when I load</a><br>
+
+<a href="{{myHref}}">I'm feeling 404</a>
+
+</div>
+<div class="col-md-4">
+<h3>ng-disabled and ng-readonly</h3>
+<input class="success" type="text" ng-model="someProperty" placeholder="Type some thing to Enable button">
+<button class="button-success"ng-model="button" ng-disabled="!someProperty">A Button</button>
+<textarea ng-disabled="isDisabled">Wait 5 seconds</textarea>
+<input type="text" ng-model="someProperty"><br/>
+<input type="text" ng-readonly="someProperty" value="Some text here"/>
+</div>
+<div class="col-md-4">
+<h3>ng-src</h3>
+<h1>Wrong Way</h1>
+<img src="{{imgSrc}}" style="width:350px;height:80px" />
+<h1>Right way</h1>
+<img ng-src="{{imgSrc}}"  style="width:350px;height:80px"/>
+
+</div>
+</div>
+<div class="row">
+<h3>ng-switch</h3>
+<div class="col-md-4">
+<div>
+<select ng-model="myVar">
+  <option value="dogs">Dogs
+  <option value="tuts">Tutorials
+  <option value="cars">Cars
+</select>
+
+<hr>
+<div ng-switch="myVar">
+  <div ng-switch-when="dogs">
+     <h1>Dogs</h1>
+     <p>Welcome to a world of dogs.</p>
+  </div>
+  <div ng-switch-when="tuts">
+     <h1>Tutorials</h1>
+     <p>Learn from examples.</p>
+  </div>
+  <div ng-switch-when="cars">
+     <h1>Cars</h1>
+     <p>Read about cars.</p>
+  </div>
+  <div ng-switch-default>
+     <h1>Switch</h1>
+     <p>Select topic from the dropdown, to switch the content of this DIV.</p>
+  </div>
+</div>
+<hr>
+</div>
+<div>
+<h4>ng-show and ng-hide</h4>
+
+
+<div ng-show="2 + 2 == 5">
+2 + 2 isn't 5, don't show
+</div>
+<div ng-show="2 + 2 == 4">
+2 + 2 is 4, do show
+</div>
+<div ng-hide="2 + 2 == 5">
+2 + 2 isn't 5, don't hide
+</div>
+<div ng-hide="2 + 2 == 4">
+2 + 2 isn't 5, do hide
+</div>
+
+<span class="help-block">check source </span>
+</div>
+
+</div>
+
+<div class="col-md-4">
+<input type="text" ng-model="person.name" />
+<div ng-switch on="person.name">
+<p ng-switch-default>And the winner is</p>
+<h1 ng-switch-when="Ari">{{ person.name }}</h1>
+</div>
+<h4>ng-if</h4>
+<div ng-if="2 + 2 === 5">
+Won't see this DOM node, not even in the source code
+</div><p>view source-- removed form dom</p>
+<div ng-if="2 + 2 === 4">
+Hi, I do exist
+</div>
+
+<hr>
+<h3>ng-change</h3>
+<div ng-controller="EquationController">
+<input type="text"
+ng-model="equation.x"
+ng-change="change()" />
+<code>{{ equation.output }}</code>
+
+</div>
+
+<span class="help-block">calls funcation on change</span>
+</div>
+<div class="col-md-4">
+<h3>ng-repeat, ng-inti, ng bind,ng-clock</h3>
+<ul ng-controller="MyCtrl">
+<li ng-repeat="person in people" ng-class="{even: !$even, odd: !$odd}">
+{{$index}}--{{person.name}} lives in {{person.city}}
+</li>
+</ul>
+<div ng-init="greeting='Hello'; person='World'">
+{{greeting}} {{person}}
+<p>binded value for person:</p>
+<p ng-bind="greeting"></p>
+<p>ng-bind-template for multiple expressions</p>
+<div
+ng-bind-template="{{ greeting }} {{ person }}">
+</div>
+</div>
+<div ng-init="greeting = 'Hello'">
+<p ng-cloak>alternative to ng-bind::{{ greeting }}</p>
+</div>
+
+</div>
+</div>
+<div class="row">
+<div class="col-md-4">
+<h2>ng-form</h2>
+<form name="signup_form" ng-controller="FormController" ng-submit="submitForm()" novalidate>
+<div ng-repeat="field in fields" ng-form="signup_form_input">
+<input type="text" name="dynamic_input" ng-required="field.isRequired" ng-model="field.name" placeholder="{{field.placeholder}}" />
+<div ng-show="signup_form_input.dynamic_input.$dirty && signup_form_input.dynamic_input.$invalid">
+<span class="error" ng-show="signup_form_input.dynamic_input.$error.required">
+The field is required.
+</span>
+</div>
+</div>
+<button type="submit" ng-disabled="signup_form.$invalid">
+Submit All
+</button>
+</form>
+
+</div>
+
+<div class="col-md-4">
+<h3>ng-click</h3>
+<div ng-controller="CounterController">
+<button ng-click="count = count + 1" ng-init="count=0">
+Increment
+</button>
+count: {{count}}
+<button ng-click="decrement()">
+Decrement
+</button>
+</div>
+
+<h3>ng-select</h3>
+<div ng-controller="CityController">
+<select ng-model="city" ng-options="city.name for city in cities">
+<option value="">Choose City</option>
+</select>
+Best City: {{ city.name }}
+</div>
+</div>
+
+<div class="col-md-4">
+<div ng-controller="LotteryController">
+<div ng-class="{red: x > 5}" ng-if="x > 5">
+You won!
+</div>
+<button ng-click="x = generateNumber()" ng-init="x = 0">
+Draw Number
+</button>
+<p>Number is: {{ x }}</p>
+</div>
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+</body>
+</html>
